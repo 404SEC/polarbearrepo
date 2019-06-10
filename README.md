@@ -1,1 +1,24 @@
 # polarbearrepo
+Windows 10计划任务管理器的本地提权漏洞
+就在昨天SandboxEscaper在博客中公布了影响Windows 10计划任务管理器的本地提权漏洞。在不到24小时的时间里，他再爆出2个0 day漏洞，分别是：
+
+· 影响Windows Error Reporting服务的AngryPolarBearBug2漏洞；
+
+· 影响IE 11沙箱绕过漏洞。
+
+这是SandboxEscaper从2018年开始发布的第6和第7个0 day漏洞。
+
+AngryPolarBearBug2
+
+DACL（discretionary access control list，自主访问控制）操作是一种识别用户和组所分配的权限，然后选择是否给予安全对象的访问权限的机制。AngryPolarBearBug2漏洞就是DACL中的漏洞。成功利用该漏洞后，攻击者可以删除或编辑任意Windows文件，包括系统可执行文件；而这些文件的编辑只有特权用户才可以做到。
+
+SandboxEscaper将该漏洞命名为AngryPolarBearBug2。AngryPolarBearBug2是2018年他发现的Windows Error Reporting服务漏洞AngryPolarBearBug的后续，去年发现的AngryPolarBearBug允许本地非特权攻击者覆写系统上的任意文件。AngryPolarBearBug漏洞详情参见。
+
+
+SandboxEscaper称该漏洞很难利用，大概要花费15分钟才能触发该漏洞。而且研究任意也不确定是否能够完全利用，因为只有一个很小的竞争利用窗口。
+
+IE 11沙箱绕过漏洞
+
+SandboxEscaper这次发布的第二个0 day漏洞是影响IE 11浏览器的漏洞。因为注释中不含有该漏洞的详细情况，但根据研究人员发布的POC视频可以确定是有漏洞的处理器再处理恶意伪造的DLL文件时产生错误导致的。
+
+https://github.com/SandboxEscaper/polarbearrepo/blob/master/sandboxescape/demo.mp4
